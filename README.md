@@ -18,7 +18,6 @@ django-mini-project/
 
 .venv/
 manage.py
-requirements.txt
 
 
 ---
