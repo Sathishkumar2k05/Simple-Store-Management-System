@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Store</title>
+</head>
+<body>
+    <h2>Products</h2>
+
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            {% for p in products %}
+            <tr>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>
+                    <input type="number" min="0" name="qty_{{p.id}}">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <button type="submit">Buy</button>
+    </form>
+
+    <hr>
+
+    <h2>My Orders</h2>
+
+    {% for order in orders %}
+    <div style="margin-bottom: 20px; border: 1px solid black; padding: 10px;">
+        <strong>Order_ID</strong>
+        {{order.id}} <br>
+        <strong>Date:</strong>
+        {{order.created_at|date:"d-m-Y h:i A"}} <br>
+        <h4>Items:</h4>
+        <ul>
+            {% for item in order.items.all %}
+            <li>
+                {{item.product.name}} - Qty: {{item.quantity}} - Total: {{item.total_amount}}
+            </li>
+            {% endfor %}
+        </ul>
+        <strong>Total Amount:</strong>
+        {{order.total_amount}}
+    </div>
+    {% empty %}
+    <p>No orders yet.</p>
+    {% endfor %}
+</body>
+</html>
