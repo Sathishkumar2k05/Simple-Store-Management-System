@@ -9,32 +9,16 @@ This mini-project demonstrates Django models, views, templates, and form handlin
 
 
 django-mini-project/
-│
-├── frontend/
-│   ├── migrations/
-│   ├── templates/
-│   │   └── home.html
-│   ├── __init__.py
-│   ├── apps.py
-│
-├── store/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── urls.py
-│   └── views.py
-│
-├── simple_store/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-│
-├── .venv/
-├── manage.py
-└── requirements.txt
+
+1) simple_store/ __init__.py/ settings.py/ urls.py/ wsgi.py(Project Folder)
+
+2) store/ migrations/ __init__.py/ admin.py/ apps.py/ models.py/ urls.py/ views.py (Django App)
+
+3) frontend / migrations / templates / home.html / __init__.py/ (frontend)
+
+.venv/
+manage.py
+requirements.txt
 
 
 ---
